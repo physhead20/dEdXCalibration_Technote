@@ -1,0 +1,167 @@
+\documentclass[a4paper]{article}
+
+%\usepackage[english]{babel}
+%\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{epsfig}
+%\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{a4}
+%\usepackage{amssymb}
+\usepackage{color}
+\usepackage{lineno}
+\usepackage{ulem}
+\usepackage{enumerate}
+\usepackage{comment}
+
+\usepackage[left=2.5cm,right=2cm,top=2.5cm,bottom=2.cm]{geometry} 
+
+%% for long url reference
+\usepackage{hyperref}
+\usepackage{url}
+\makeatletter
+\def\url@mystyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+\urlstyle{my}
+
+
+
+\renewcommand{\thefootnote}{\alph{footnote}}
+\renewcommand{\topfraction}{.99}
+\renewcommand{\bottomfraction}{.99}
+
+\title{Momentum based dE/dX Calibration of LArIAT for Run I and Run II}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\Journal#1#2#3#4{{#1} {\bf #2}, #3 (#4)}
+\def\etal{{\it et\ al.}}
+\def\numunue{\nu_\mu\rightarrow\nu_e}
+\def\numunutau{\nu_\mu\rightarrow\nu_\tau}
+\def\nuebar{\bar\nu_e}
+\def\nue{\nu_e}
+\def\nutau{\nu_\tau}
+\def\numubar{\bar\nu_\mu}
+\def\numu{\nu_\mu}
+\def\ra{\rightarrow}
+\def\numubarnuebar{\bar\nu_\mu\rightarrow\bar\nu_e}
+\def\nuebarnumubar{\bar\nu_e\rightarrow\bar\nu_\mu}
+\def\osc{\rightsquigarrow}
+\def\inteni{{\cal I}_{pot}}
+\def\fmerit{{\cal F}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{flushright}
+{\tt version 0.5}\\ 
+\today
+\end{flushright}
+\vspace*{0.6cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\linenumbers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+{\Large \bf Letter of Intent} \\
+\vspace*{0.6cm}
+{\Large \bf Momentum based dE/dX Calibration of LArIAT for Run I and Run II} 
+\vspace*{1.6cm}
+\setcounter{footnote}{0}  
+\def\A{\kern+.6ex\lower.42ex\hbox{$\scriptstyle \iota$}\kern-1.20ex a}
+\def\E{\kern+.5ex\lower.42ex\hbox{$\scriptstyle \iota$}\kern-1.10ex e}
+\small
+\newcommand{\Aname}[2]{#1}
+\def\titlefoot#1{\vspace{-0.3cm}\begin{center}{\bf #1}\end{center}}
+
+\Aname{J.~Asaadi}{UTA},
+
+\titlefoot{University of Texas at Arlington\label{UTA}}
+%\vspace{-0.1cm}
+
+\Aname{E. Gramellini}{Yale},
+
+\titlefoot{Yale University\label{Yale}}
+%\vspace{-0.1cm}
+
+\end{center}
+\vspace*{1cm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ABSTRACT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newpage
+\begin{abstract}
+
+Calibration of the LArIAT detector using momentum...... 
+
+\end{abstract} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Table of content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\tableofcontents
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SECTION 1: Introduction
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\section{Introduction and physics case} 
+\newpage
+\input{section1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SECTION 2: Data Samples
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\input{section2}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SECTION 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\section{The Concept of ArgonCube TPC module}
+%\include{section3}
+\newpage
+%\input{section3}
+
+% rough, but done for now, need to clean up later.
+%%%See pages 39 and 40 of Damian thesis for electronics section
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SECTION 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\section{\textcolor{blue}{R\&D Strategy}}
+%\include{section4}
+\newpage
+%\input{section4}
+
+% rough, but done for now, need to clean up later.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SECTION 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\section{Phase 0: Experience gained with the Argon Tube project}
+%\include{section5}
+\newpage
+%\input{section5}
+
+%viper but not viper
+
+%the tub 
+
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  BIBLIOGRAPHY	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\include{reference}
+\input{reference}
+
+
+
+\end{document}
