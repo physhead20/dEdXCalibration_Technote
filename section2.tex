@@ -1,8 +1,6 @@
 \section{Data Samples}\label{sec:DataSamples}
 The data samples used for this calibration span Run-I and Run-II. The details of all the data samples are outlined in \href{https://docs.google.com/spreadsheets/d/1_0kNCKBIIx53f6vopqN2OijtcTICHD9rDvN_YKGH2mI/edit?usp=sharing}{this data production spreadsheet} and summarized in Table \ref{tab:samples}. It is worth noting, that in the inclusive pion cross-section analysis (for which a good deal of this calibration is driven by), the ``High-Yield'' beamline reconstruction is what is used to increase the statistics of the sample. Since the ``Picky Track'' reconstruction used here represents only a subset of that data, we don't use the entire measurement sample to tune our response. 
 
-The details of the beamline reconstruction and the mass filter are provided in the next section.
-
 \begin{center}
 \begin{table}[htb]
 	\begin{center}
@@ -34,14 +32,15 @@ The details of the beamline reconstruction and the mass filter are provided in t
 The corresponding data driven Monte Carlo (DDMC) samples which match the data samples listed in Table \ref{tab:samples} are used to tune the MC calibration constants and can be found on the data spreadsheet listed above.
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Event Selection}\label{sec:EventSelection}
-For each sample, we outline the event selection used to select this data.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+For each sample listed in Table \ref{tab:samples}, we outline the event selection used to select this data.
 
 \begin{itemize}
 \item \textbf{Time Stamp Filter}
 
-A filter is used to select events which occured in time with the beam. These events typically coincide with the first 6 seconds of the beam spill, and therefore the events are filtered using the following LArIATsoft settings
+A filter is used to select events which occurred in time with the beam. These events typically coincide with the first 6 seconds of the beam spill, and therefore the events are filtered using the following LArIATsoft settings
 
 \begin{verbatim}
 tfilt:      @local::lariat_timestampfilter
@@ -105,12 +104,11 @@ where $p$ represents the measured momentum from the wire chamber, $TOF$ represen
 Using this it is possible to plot the mass of each track reconstructed in the particle beamline, as shown in Figure \ref{fig:mass}. The classification of events into the different samples follows:
 
 \begin{itemize}
+\item \underline{$\pi, \mu, e$:} 0~MeV $<$ mass $<$ 350~MeV
 
-\item $\pi, \mu, e$: 0~MeV $<$ mass $<$ 350~MeV
+\item \underline{kaon:} 350~MeV $<$ mass $<$ 650~MeV
 
-\item kaon: 350~MeV $<$ mass $<$ 650~MeV
-
-\item proton: 650~MeV $<$ mass $<$ 3000~MeV
+\item \underline{proton:} 650~MeV $<$ mass $<$ 3000~MeV
 
 \end{itemize}
 

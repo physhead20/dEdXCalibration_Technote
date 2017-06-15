@@ -24,20 +24,22 @@ Using the predictions in Figure \ref{fig:PDGEnergyLossArgon}, allows us to tune 
 \subsection{Calibration Method Overview}\label{sec:MethodOverview}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In this section, we will describe the methodology we use to select our samples and tune the calorimetry constants. Details specific to any one sample will be described in Section  \ref{sec:EventSelection} and instead we will present the general method and how it is applied. 
+Here describe the methodology used to select our samples and tune the calorimetry constants. Details specific to any one sample will be described in Section  \ref{sec:EventSelection} and we present the general method here and how it is applied. 
 
-The basic idea of this calibration technique is to utilize portion of a track within the LArTPC that has a well known momentum and particle species to measure the energy deposited per unit length (dE/dX) as recorded inside the TPC. Once a sample of particles dE/dX has been measured at various momentums, we then tune to calorimetry constants within the reconstruction software align these measured values to match the theoretical ones found in Figure \ref{fig:PDGEnergyLossArgon}.
+The basic idea of this calibration technique is to utilize a portion of a track within the LArTPC that has a well known momentum and particle species to measure the energy deposited per unit length (dE/dX) as recorded inside the TPC. Once a sample of particles dE/dX has been measured at various momentums, we then tune to calorimetry constants within the reconstruction software to align these measured values to match the theoretical ones found in Figure \ref{fig:PDGEnergyLossArgon}.
 
-Since various electronics changes and fixes to the PMT system were done between Run-I and Run-II, we derive calibration constants independently for both of these run periods. These calibration constants are the factors which convert the charge collected (dQ) to energy (dE). The details of how the calorimetry package works is beyond the scope of this note and is given in \href{http://lartpc-docdb.fnal.gov:8080/cgi-bin/ShowDocument?docid=2444}{docDB-2444}.
+Since various electronics changes were done between Run-I and Run-II data taking periods, we derive calibration constants independently for both of these run periods. These calibration constants are the factors which convert the charge collected (dQ) to energy (dE). The details of how the calorimetry package works is beyond the scope of this note and is given in \href{http://lartpc-docdb.fnal.gov:8080/cgi-bin/ShowDocument?docid=2444}{docDB-2444}.
 
 The calibration procedure follows the following basic steps:
 \begin{itemize}
 
-\item \textbf{Particle Identification in the beamline:}
+\item \textbf{Particle identification in the beamline:}
 
-We first select a sample of beamline events that correspond to either a sample of $\pi, \mu, e$ or protons. This is done by selecting based on the measured time-of-flight (TOF) vs momentum as measured in the wire chambers. We start by requiring the tracks reconstructed in the wire chamber satisfy the criteria known as a ``picky'' track, meaning the track reconstructed from the four wire chambers has a hit in each wire chamber. In these events, one and only one wire chamber track can be reconstructed per event. These tracks have a more accurate measure of the particle momentum than the ``high yield'' tracks which only require hits in three out of four of the wire chamber tracks and can have mulitple wire chamber tracks reconstructed per event. The ``high yield'' sample is used as a cross-check with more statistics once the calibration constants are found.
+We first select a sample of beamline events that correspond to either a sample of $\pi, \mu, e$ or protons. This is done by selecting based on the measured time-of-flight (TOF) and momentum. 
 
-The wire chamber track is extrapolated to the front face of the LArTPC giving a $x, y$ position expected for the track in the TPC. A simple flat correction to the energy loss by the particle as it traverses the material between the last wire chamber and the front face of the LArTPC.
+For the calibration samples we require the tracks reconstructed in the wire chamber satisfy the criteria known as a ``picky track''. ``Picky tracks'' correspond to tracks reconstructed using hits in all four wire chambers. In these events, one and only one wire chamber track can be reconstructed per event. These tracks have a more accurate measure of the particle momentum than the ``high yield'' tracks which only require hits in three out of four of the wire chamber tracks and can have mulitple wire chamber tracks reconstructed per event. Details about wire chamber track reconstruction can be found in \cite{WCTrackReco}
+
+The wire chamber track is extrapolated to the front face of the LArTPC giving a $x, y$ position expected for the track in the TPC. A simple flat correction to the momentum as measured by the wire chambers due to the  energy loss by the particle as it traverses the material between the last wire chamber and the front face of the LArTPC is applied in data. 
 
 For the Monte Carlo, no such beamline identification is done and instead we use the data-driven Monte Carlo (DDMC), which constructs the momentum and angular distributions for the single particle MC, and launches particles from the position of the fourth wire chamber (WC4) towards the TPC. We utilize the Monte Carlo truth for the position and momentum of the Monte Carlo particles as they enter the TPC.
 
@@ -45,25 +47,25 @@ For the Monte Carlo, no such beamline identification is done and instead we use 
 
 For each track reconstructed inside the TPC, the most upstream trajectory point (smallest $z$ position) is found. For that point we have it's $x, y, z$ as well as the calculated $p_{x}, p_{y}, and p_{z}$ (which is used to calculate the tracks $\theta, \phi$. Using this as well as the wire chamber tracks extrapolated $x, y, \theta, \phi$ we then select the event if there is one and only one TPC track which matches the wire chamber track. The exact matching criteria is given in Section \ref{sec:EventSelection}.
 
-We now have the initial momentum (corrected for energy loss due to the upstream material) of the TPC track which we can use for our calibration.
-
-For the Monte Carlo, the ``wire chamber'' matching is done treating the true position of the MC particle as it enters the TPC as the ``wire chamber'' track. The rest of the matching proceeds just as before.
+We now have the initial momentum (corrected for energy loss due to the upstream material) of the TPC track which we can use for our calibration. For the Monte Carlo, the ``wire chamber'' matching is done treating the true position of the MC particle as it enters the TPC as the ``wire chamber'' track. The rest of the matching proceeds just as before.
 
 \item \textbf{dE/dX sampling:}
 
 With the track within the TPC identified and the momentum for that track measured, we require the track to be of a minimum length of 10~cm long (to ensure we are away from any interaction point where the track may be broken into subsequent tracks). We then take the first twelve spacepoints of the track (excluding the first point to avoid edge effects near the field cage) and sample the reconstructed dE/dX for each point along the track. On average, this samples 5~cm of the track (shown in Section \ref{sec:Results}). These dE/dX measurments are then put into a histogram that corresponds to measured momentum of the track.
 
-The dE/dX histograms are sampled every 50 MeV in momentum (e.g. 150~MeV $< P <$ 200~MeV, 200~MeV $< P <$ 250~MeV, etc...). On average, $\pi, \mu$ only lose $\sim$10 MeV in this 5~cm section of the track and protons lose $\sim$20 MeV, thus choosing 50 MeV size bins for our histograms should more than cover the energy spread within those bins.
+The dE/dX histograms are sampled every 50 MeV in momentum (e.g. 150~MeV $< P <$ 200~MeV, 200~MeV $< P <$ 250~MeV, etc...). On average, pions and muons only lose $\sim$10 MeV in this 5~cm section of the track and protons lose $\sim$20 MeV. Thus choosing 50 MeV size bins for our histograms should more than cover the energy spread within those bins due to energy loss from ionization.
 
 This process of selecting, sampling, and recording the dE/dX for various momentum bins is now repeated over the entire sample of events, allowing us to collect sufficient statistic in most of the momentum bins between 150~MeV and 1100~MeV (which varies slightly, depending on the initial momentum spectrum for a given run period).
 
 \item \textbf{Fit, tune, repeat:}
 
-Each 50 MeV momentum binned dE/dX histogram is now fit with a simple Landau function. The fit range for the $\pi / \mu$ sample is between 1.0 MeV and 5.0 MeV (bounds chosen to avoid the low dE/dX fluctuations seen in Run-1) and 2.5 MeV and 8.0 MeV for the proton sample. The most probable value (MPV) and the associated error on the MPV from the fit are extracted and plotted on Figure \ref{fig:PDGEnergyLossArgon}.
+Each 50 MeV momentum binned dE/dX histogram is now fit with a simple Landau function. The fit range for the pion/muon sample is between 1.0 MeV and 5.0 MeV (bounds chosen to avoid the low dE/dX fluctuations seen in Run-1) and 2.5 MeV and 8.0 MeV for the proton sample. The most probable value (MPV) and the associated error on the MPV from the fit are extracted and plotted on Figure \ref{fig:PDGEnergyLossArgon}.
 
-Depending on the outcome of the fit, the calorimetry constants are either tuned up or down. As a rule of thumb, if the values are too high (meaning the fitted dE/dX is above the line), the calorimetry constants are increased (as counter intuitive as this seems...it is how its done). This both shifts the mean as well as changes the shape (since the recombination factor is applied to the dE derived from the calorimetry constants). Likewise, if the values are low the calorimetry constants are decreased. The values are tuned for both the collection and induction plane to try to achieve the best match to the theoretical curve that we can. The exact match is left as a qualitative exercise and is not quantitatively evaluated.
+Depending on the outcome of the fit, the calorimetry constants are either tuned up or down. As a rule of thumb, if the returned MPVs are too high (meaning the fitted dE/dX is above the line), the calorimetry constants are increased (as counter intuitive as this seems...it is how its done). This both shifts the mean as well as changes the shape (since the recombination factor is applied to the dE derived from the calorimetry constants). Likewise, if the values are low the calorimetry constants are decreased. 
 
-Additionally, the cumulative dE/dX distribution is also plotted and fit with a Landau function to assess the overall dE/dX calibration for the sample. This procedure is illustrated in Figure \ref{fig:CalibrationExample}.
+The values are tuned for both the collection and induction plane to try to achieve the best match to the theoretical curve that we can. The exact match is left as a qualitative exercise and is not quantitatively evaluated. While the tuning of the induction plane was done, the results are not shown in the technical note because, for the purposes of the forthcoming analyses we will only use the collection plane.
+
+In addition to these distributions, the cumulative dE/dX distribution is also plotted and fit with a Landau function to assess the overall dE/dX calibration for the sample. This procedure is illustrated in Figure \ref{fig:CalibrationExample}.
 
 \end{itemize}
 
@@ -74,3 +76,4 @@ Additionally, the cumulative dE/dX distribution is also plotted and fit with a L
 \label{fig:CalibrationExample}
 \end{figure}
 
+With the procedure now laid out, we will move into the data and Monte Carlo samples used and the details of the event selection.
