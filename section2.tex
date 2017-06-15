@@ -1,6 +1,35 @@
 \section{Data Samples}\label{sec:DataSamples}
+The data samples used for this calibration span Run-I and Run-II. The details of all the data samples are outlined in \href{https://docs.google.com/spreadsheets/d/1_0kNCKBIIx53f6vopqN2OijtcTICHD9rDvN_YKGH2mI/edit?usp=sharing}{this data production spreadsheet} and summarized in Table \ref{tab:samples}. It is worth noting, that in the inclusive pion cross-section analysis (for which a good deal of this calibration is driven by), the ``High-Yield'' beamline reconstruction is what is used to increase the statistics of the sample. Since the ``Picky Track'' reconstruction used here represents only a subset of that data, we don't use the entire measurement data set to tune our response.
 
+\begin{center}
+\begin{table}[htb]
+	\begin{center}
+	%\resizebox{0.45\textwidth}{!}{%
+	\begin{tabular}{c|c|c|c|c}
+	\multicolumn{4}{c}{\textbf{Summary of Samples}} \\
+	\hline \hline
+	 Run Period & LArIATsoft Version & Beamline Reconstruction & Mass Filter & Calibration/Validation\\
+	\hline
+	Run-I & \verb!v06_34_01! & Negative Polarity Picky Track & $\pi, \mu, e$ & Calibration \\
+	\hline
+	Run-I & \verb!v06_34_01! & Positive Polarity Picky Track & $\pi, \mu, e$ & Validation \\
+	\hline
+	Run-I & \verb!v06_34_01! & Positive Polarity Picky Track & Proton & Validation \\
+	\hline
+	Run-II & \verb!v06_34_01! & Positive Polarity Picky Track & $\pi, \mu, e$ & Calibration \\
+	\hline
+	Run-II & \verb!v06_34_01! & Negative Polarity Picky Track & $\pi, \mu, e$ & Validation \\
+	\hline
+	Run-II & \verb!v06_34_01! & Positive Polarity Picky Track & Proton & Validation \\
+	\hline
+	\end{tabular}%}
+	\caption{Summary of the data samples used for the calibration study. A sample listed as a ``calibration'' sample was used, tuned, checked, and re-tuned until the desired calibration was achieved. A sample listed at ``validation'' was then checked using the calorimetry constants derived for that run period. }
+	\label{tab:samples}
+	\end{center}
+\end{table}
+\end{center}
 
+The corresponding data driven Monte Carlo (DDMC) samples which match the data samples listed in Table \ref{tab:samples} are used to tune the MC calibration constants and can be found on the data spreadsheet listed above.
 
 
 

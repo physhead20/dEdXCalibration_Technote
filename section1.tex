@@ -51,6 +51,26 @@ For the Monte Carlo, the ``wire chamber'' matching is done treating the true pos
 
 \item \textbf{dE/dX sampling:}
 
+With the track within the TPC identified and the momentum for that track measured, we require the track to be of a minimum length of 10~cm long (to ensure we are away from any interaction point where the track may be broken into subsequent tracks). We then take the first twelve spacepoints of the track (excluding the first point to avoid edge effects near the field cage) and sample the reconstructed dE/dX for each point along the track. On average, this samples 5~cm of the track (shown in Section \ref{sec:Results}). These dE/dX measurments are then put into a histogram that corresponds to measured momentum of the track.
 
+The dE/dX histograms are sampled every 50 MeV in momentum (e.g. 150~MeV $< P <$ 200~MeV, 200~MeV $< P <$ 250~MeV, etc...). On average, $\pi, \mu$ only lose $\sim$10 MeV in this 5~cm section of the track and protons lose $\sim$20 MeV, thus choosing 50 MeV size bins for our histograms should more than cover the energy spread within those bins.
+
+This process of selecting, sampling, and recording the dE/dX for various momentum bins is now repeated over the entire sample of events, allowing us to collect sufficient statistic in most of the momentum bins between 150~MeV and 1100~MeV (which varies slightly, depending on the initial momentum spectrum for a given run period).
+
+\item \textbf{Fit, tune, repeat:}
+
+Each 50 MeV momentum binned dE/dX histogram is now fit with a simple Landau function. The fit range for the $\pi / \mu$ sample is between 1.0 MeV and 5.0 MeV (bounds chosen to avoid the low dE/dX fluctuations seen in Run-1) and 2.5 MeV and 8.0 MeV for the proton sample. The most probable value (MPV) and the associated error on the MPV from the fit are extracted and plotted on Figure \ref{fig:PDGEnergyLossArgon}.
+
+Depending on the outcome of the fit, the calorimetry constants are either tuned up or down. As a rule of thumb, if the values are too high (meaning the fitted dE/dX is above the line), the calorimetry constants are increased (as counter intuitive as this seems...it is how its done). This both shifts the mean as well as changes the shape (since the recombination factor is applied to the dE derived from the calorimetry constants). Likewise, if the values are low the calorimetry constants are decreased. The values are tuned for both the collection and induction plane to try to achieve the best match to the theoretical curve that we can. The exact match is left as a qualitative exercise and is not quantitatively evaluated.
+
+Additionally, the cumulative dE/dX distribution is also plotted and fit with a Landau function to assess the overall dE/dX calibration for the sample. This procedure is illustrated in Figure \ref{fig:CalibrationExample}.
 
 \end{itemize}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.50\textwidth]{images/CalibrationExample.png}
+\caption{Illustration of the calibration technique. Here we depict a 325 MeV wire chamber track (shown in green) which enters the TPC (taking into account the energy loss from the upstream material) and we sample the first 12 spacepoints (shown in teal) to extract the dE/dX distribution which is fit with a Landau.}
+\label{fig:CalibrationExample}
+\end{figure}
+
