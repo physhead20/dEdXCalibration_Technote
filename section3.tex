@@ -58,7 +58,7 @@ The sample of 2,464 negative polarity $\pi^{-}, \mu^{-}, e^{-}$ picky tracks was
 \centering
 \includegraphics[width=0.48\textwidth]{images/dEdXvsMomentumNegPolRun1FineBin2.png}
 \includegraphics[width=0.48\textwidth]{images/dEdXRun1NegPolFinal.png}
-\caption{(Left) dE/dX vs Momentum for Negative Polarity Picky Tracks: $\pi^{-}, \mu^{-}, e^{-}$ sample ,(Right) dE/dX for the entire sample of uniquely matched tracks in the Negative Polarity Picky Tracks: $\pi^{-}, \mu^{-}, e^{-}$ sample }
+\caption{(Top) dE/dX vs Momentum for Negative Polarity Picky Tracks: $\pi^{-}, \mu^{-}, e^{-}$ sample ,(Bottom) dE/dX for the entire sample of uniquely matched tracks in the Negative Polarity Picky Tracks: $\pi^{-}, \mu^{-}, e^{-}$ sample }
 \label{fig:Run1NegPickyTrkPiMuEResults}
 \end{figure}
 
@@ -141,7 +141,7 @@ As a final cross-check for Run-1, a sample of protons is selected from the posit
 \label{fig:Run1PosPickyTrkProtonResults}
 \end{figure}
 
-This sample differs slightly from the $\pi^{+}, \mu^{+}, e^{+}$ samples in that the ranges for the fits have been modified to exclude a contamination coming from minimum ionizing particles. This contamination can be seen in the RHS of Figure \ref{fig:Run1PosPickyTrkProtonResults} with the peak below 2~MeV/cm. Secondly, events with very low statistics in the momentum bins below 550~MeV are excluded from the LHS of Figure \ref{fig:Run1PosPickyTrkProtonResults}.
+This sample differs slightly from the $\pi^{+}, \mu^{+}, e^{+}$ samples in that the ranges for the fits have been modified to exclude a contamination coming from minimum ionizing particles. This contamination can be seen in the RHS of Figure \ref{fig:Run1PosPickyTrkProtonResults} with the peak below 2~MeV/cm. Secondly, events with very low statistics in the momentum bins below 350~MeV are excluded from the LHS of Figure \ref{fig:Run1PosPickyTrkProtonResults} and the lowest bin is merged between 350 MeV and 550 MeV.
 
 The MPV for the entire sample of 4.55 MeV/cm is slightly above expected value of 3.9 MeV/cm for a mean momentum of $\sim$730 MeV as was present for this sample, shown in Figure \ref{fig:Run1PosPickyTrkProtonMomentumSpec}. This slightly higher MPV is consistent with the results seen in the $\pi, \mu, e$ samples, but overall the data follows the Bethe-Bloch curve relatively well.
 
@@ -164,23 +164,23 @@ Table \ref{tab:RunIICutSummary} summarizes the number of events which are select
 \begin{table}[htb]
 	\begin{center}
 	\resizebox{0.95\textwidth}{!}{%
-	\begin{tabular}{|c|c|c|c|}
+	\begin{tabular}{|c|c|c|c|c|c|}
 	\hline
 	%\multicolumn{5}{|c|}{\textbf{Summary of inclusive NC $\pi^{0}$ Event Selection Cuts}} \\
 	%\hline \hline
-	  \textbf{Event Selection} & Run-II Negative Polarity & Run-II Positive Polarity & Run-II Positive Polarity  \\
-	   & $\pi, \mu, e$ & $\pi, \mu, e$ & Proton  \\
+	  \textbf{Event Selection} & Run-II Negative Polarity & Run-II Negative Polarity  & Run-II Positive Polarity & Run-II Positive Polarity & Run-II Positive Polarity  \\
+	   & $\pi^{-}, \mu^{-}, e^{-}$ & $K^{-}$ & $\pi^{+}, \mu^{+}, e^{+}$ & $K^{+}$ & Proton  \\
 	\hline
-	Beam Filter & 1,585,598 & 1,555,402 & 1,555,402 \\
+	Beam Filter & 1,585,598 & 1,585,598  & 1,555,402 & 1,555,402  & 1,555,402 \\
 	\hline
-	Mass Selection & 124,965 & 89,561 & 94,210 \\
+	Mass Selection & 124,965 & 835 & 89,561 & 4,289 & 94,210 \\
 	\hline
-	$>$ 1 Track Reconstructed in the TPC & 117,869 & 86,918  & 82,099  \\
+	$>$ 1 Track Reconstructed in the TPC & 117,869 & 601 & 86,918 & 4,083 & 82,099  \\
 	\hline
-	$<$ 3 Tracks Reconstructed &  &  &  \\
-	with length $<$ 5~cm & 88,717 & 69,509  & 68,847  \\
+	$<$ 3 Tracks Reconstructed &  &  &  &  &  \\
+	with length $<$ 5~cm & 88,717 & 428 & 69,509 & 3,385 & 68,847  \\
 	\hline
-	Unique match between WC and TPC Track & 48,076 & 43,547  & 36,278  \\
+	Unique match between WC and TPC Track & 48,076  & 216 & 43,547 & 1,719 & 36,278  \\
 	\hline
 	\hline
 	\end{tabular}}
@@ -188,23 +188,33 @@ Table \ref{tab:RunIICutSummary} summarizes the number of events which are select
 	\end{center}
 \end{table}
 
-For Run-II data, a slightly different order was followed in tuning the calibration constants. For this set of data we began with positive polarity picky tracks  $\pi, \mu, e$ sample and then checked this tuning with the negative polarity picky tracks  $\pi, \mu, e$ sample and the positive polarity picky track proton sample. This was done to help ensure the samples weren't being biased in the tuning for the negative polarity pion inclusive cross-section sample.  The order is the method was applied is represented by the section numbering.
+Figure \ref{fig:Run2NegPosPickyTrkTotal} shows the total calibration for Run-II data samples using the calorimetry constants \verb!physics.producers.calo.CaloAlg.CalAreaConstants: [0.022,0.0445]!. The results only show the tuning of the collection plane values. Due to the limited statistics in the kaon sample, bins in momentum with too few entries were omitted from the plot due to the poor fit values returned. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.75\textwidth]{images/RunIINegTotaldEdXvsMomentum.png}
+\includegraphics[width=0.75\textwidth]{images/RunIIPosTotaldEdXvsMomentum.png}
+\caption{(Top) dE/dX vs Momentum for Run-II Negative Polarity Picky Tracks: $\pi^{-}, \mu^{-}, e^{-}$ and $K^{-}$ sample ,(Bottom) dE/dX vs Momentum for Run-II Positive Polarity Picky Tracks: $\pi^{+}, \mu^{+}, e^{+}$ and $K^{+}$, and Proton sample. }
+\label{fig:Run2NegPosPickyTrkTotal}
+\end{figure}
+
+For Run-II data, a slightly different order was followed in tuning the calibration constants. For this set of data we began with positive polarity picky tracks  $\pi^{+}, \mu^{+}, e^{+}$ sample and then checked this tuning with $K^{+}$ and the proton sample before cross-checking with the negative polarity picky tracks  $\pi^{-}, \mu^{-}, e^{-}$ and $K^{-}$ sample. This was done to help ensure the samples weren't being biased in the tuning for the negative polarity pion inclusive cross-section sample.  The order is the method was applied is represented by the section numbering.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Positive Polarity Picky Tracks: $\pi, \mu, e$}\label{sec:Run2PosPickyTrkPiMuE}
+\subsubsection{Positive Polarity Picky Tracks: $\pi^{+}, \mu^{+}, e^{+}$}\label{sec:Run2PosPickyTrkPiMuE}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This sample of events was used to tune the calorimetry constants for Run-II. After several iterations the calo constants \verb!physics.producers.calo.CaloAlg.CalAreaConstants: [0.021,0.0490]! were chosen. Figure \ref{fig:Run2PosPickyTrkPiMuEResults} shows the dE/dX vs momentum and the aggregate dE/dX distribution obtained with these calorimetry constants.
+This sample of events was used to tune the calorimetry constants for Run-II. After several iterations the calo constants \verb!physics.producers.calo.CaloAlg.CalAreaConstants: [0.022,0.0445]! were chosen. Figure \ref{fig:Run2PosPickyTrkPiMuEResults} shows the dE/dX vs momentum and the aggregate dE/dX distribution obtained with these calorimetry constants.
 
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.48\textwidth]{images/dEdXvsMomentumPosPolRun2FineBin.png}
 \includegraphics[width=0.48\textwidth]{images/dEdXPosPolRun2.png}
-\caption{(Left) dE/dX vs Momentum for Positive Polarity Picky $\pi, \mu, e$ sample ,(Right) dE/dX for the entire sample of uniquely matched tracks in the Positive Polarity Picky $\pi, \mu, e$ sample }
+\caption{(Left) dE/dX vs Momentum for Positive Polarity Picky $\pi^{+}, \mu^{+}, e^{+}$ sample ,(Right) dE/dX for the entire sample of uniquely matched tracks in the Positive Polarity Picky $\pi^{+}, \mu^{+}, e^{+}$ sample }
 \label{fig:Run2PosPickyTrkPiMuEResults}
 \end{figure}
 
-The distributions here generally agree with the theoretical curve for a sample of pions and muons (as there is expected to be a small contamination of the pion beam with through going muons. The MPV for the entire sample of 1.624 MeV/cm is close to the expected value of 1.53 MeV/cm for a mean momentum of $\sim$640 MeV as was present for this sample, shown in Figure \ref{fig:Run2PosPickyTrkPiMuEMomentumSpec}. While the agreement isn't as good as it was in Run-I, it is close enough to proceed.
+The distributions here generally agree with the theoretical curve for a sample of pions and muons (as there is expected to be a small contamination of the pion beam with through going muons. The MPV for the entire sample of 1.76 MeV/cm is slightly higher than the expected 1.63 MeV/cm for a mean momentum of $\sim$640 MeV as was present for this sample, shown in Figure \ref{fig:Run2PosPickyTrkPiMuEMomentumSpec}. While this agreement isn't great, the sample does clearly follow the expected Bethe-Bloch curve for the various momentum steps.
 
 \begin{figure}[htb]
 \centering
@@ -214,20 +224,76 @@ The distributions here generally agree with the theoretical curve for a sample o
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Negative Polarity Picky Tracks: $\pi, \mu, e$}\label{sec:Run2NegPickyTrkPiMuE}
+\subsubsection{Positive Polarity Picky Tracks: $K^{+}$}\label{sec:Run2PosPickyTrkKaons}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The sample of 1,719 positive polarity $K^{+}$ picky track events was used to check the calibration constants provided in Section \ref{sec:Run1NegPickyTrkPiMuE}. This samples has sufficient statistics to provide a good cross-check on the constants derived in Section \ref{sec:Run2PosPickyTrkPiMuE}, unlike the case in Run-I.
+
+Figure \ref{fig:Run2PosPickyTrkKaonResults} shows the dE/dX vs momentum and the aggregate dE/dX distribution obtained with these calorimetry constants for this sample of $K^{+}$.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.48\textwidth]{images/dEdXvsMomentumPosPolRun2Kaon.png}
+\includegraphics[width=0.48\textwidth]{images/dEdXKaonRunIIPosPol.png}
+\caption{(Left) dE/dX vs Momentum for Negative Polarity Picky Tracks: $K^{+}$ sample ,(Right) dE/dX for the entire sample of uniquely matched tracks in the Negative Polarity Picky Tracks: $K^{+}$ sample }
+\label{fig:Run2PosPickyTrkKaonResults}
+\end{figure}
+
+
+The distributions here agree relatively well with the theoretical curve. The MPV for the entire $K^{+}$ sample is 2.4 MeV/cm which is slightly higher (as was the case for the other samples) than the expected value of 2.15 MeV/cm for a mean momentum of $\sim$ 724 MeV as shown in Figure \ref{fig:Run2PosPickyTrkKaonMomentumSpec}. 
+
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.55\textwidth]{images/RunIIKaonPosPolWCMomentum.png}
+\caption{Wire chamber track momentum spectrum for the Run-II Positive Polarity Picky $K^{+}$ sample  }
+\label{fig:Run2PosPickyTrkKaonMomentumSpec}
+\end{figure}
+
+
+In addition to this slight pathology, the lowest momentum bin between 250 MeV and 350 MeV has fluctuated low. This is driven by the fact that the number of entries in this bin is sparse and the fits are not optimal. While the statistics were sufficient to not be excluded outright, this bin should be taken with a pinch of salt.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Positive Polarity Picky Tracks: Proton}\label{sec:Run2PosPickyTrkProton}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Using the same calibration constants derived in Section \ref{sec:Run2PosPickyTrkPiMuE}, Figure \ref{fig:Run2NegPickyTrkPiMuEResults} shows the outcome for the negative polarity sample of $\pi, \mu, e$ in Run-II.
+Using the sample of 36,278 protons selected from the positive polarity picky track sample using the mass cut described in Section \ref{sec:EventSelection} allows for a high dE/dX check of the calibration constants derived in Section \ref{sec:Run2PosPickyTrkPiMuE}. The outcome of the calibration sample is shown in Figure \ref{fig:Run2PosPickyTrkProtonResults}.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.48\textwidth]{images/dEdXvsMomentumPosPolRun2ProtonFineBin.png}
+\includegraphics[width=0.48\textwidth]{images/dEdXPosPolRun2Proton.png}
+\caption{(Left) dE/dX vs Momentum for Positive Polarity Picky Tracks proton sample ,(Right) dE/dX for the entire sample of uniquely matched tracks in the Positive Polarity Picky Tracks proton sample.}
+\label{fig:Run2PosPickyTrkProtonResults}
+\end{figure}
+
+Just as before, this sample differs slightly from the $\pi, \mu, e$ samples in that the ranges for the fits have been modified to exclude a contamination coming from minimum ionizing particles. This contamination can be seen in the RHS of Figure \ref{fig:Run2PosPickyTrkProtonResults} with the peak below 2~MeV/cm. Secondly, events with very low statistics in the momentum bins below 350~MeV are excluded from the LHS of Figure \ref{figRun1PosPickyTrkProtonResults} and the lowest bin is merged between 350 MeV and 550 MeV.
+
+The MPV for the entire sample of 4.62 MeV/cm is higher than expected value of 3.85 MeV/cm for a mean momentum of $\sim$725  MeV as was present for this sample, shown in Figure \ref{fig:Run1PosPickyTrkProtonMomentumSpec}. Again, the data points follow the expected Bethe-Bloch behavior rather well despite this disagreement with the mean momentum expectation.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.55\textwidth]{images/WCTrkMomentumRun2PosProton.png}
+\caption{Wire chamber track momentum spectrum for the Run-II Positive Polarity Picky Tracks proton sample  }
+\label{fig:Run1PosPickyTrkProtonMomentumSpec}
+\end{figure}
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Negative Polarity Picky Tracks: $\pi^{-}, \mu^{-}, e^{-}$}\label{sec:Run2NegPickyTrkPiMuE}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Using the same calibration constants derived in Section \ref{sec:Run2PosPickyTrkPiMuE}, Figure \ref{fig:Run2NegPickyTrkPiMuEResults} shows the outcome for the sample of 48,976 negative polarity $\pi^{-}, \mu^{-}, e^{-}$ events in Run-II. This sample is used to cross-check the calibration constants derived for the positive polarity sample.
 
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.48\textwidth]{images/dEdXvsMomentumNegPolRun2FineBin.png}
 \includegraphics[width=0.48\textwidth]{images/dEdXNegPolRun2.png}
-\caption{(Left) dE/dX vs Momentum for Negative Polarity Picky $\pi, \mu, e$ sample ,(Right) dE/dX for the entire sample of uniquely matched tracks in the Negative Polarity Picky Tracks: $\pi, \mu, e$ sample }
+\caption{(Left) dE/dX vs Momentum for Negative Polarity Picky $\pi^{-}, \mu^{-}, e^{-}$ sample ,(Right) dE/dX for the entire sample of uniquely matched tracks in the Negative Polarity Picky Tracks: $\pi^{-}, \mu^{-}, e^{-}$ sample }
 \label{fig:Run2NegPickyTrkPiMuEResults}
 \end{figure}
 
-The distributions here also agree with the theoretical curve for a sample of pions and muons (as there is expected to be a small contamination of the pion beam with through going muons. The MPV for the entire sample of 1.589 MeV/cm agrees closely with the expected value of 1.51 MeV/cm for a mean momentum of $\sim$500 MeV as was present for this sample, shown in Figure \ref{fig:Run2NegPickyTrkPiMuEMomentumSpec}.
+The distributions here also agree with the theoretical curve for a sample of pions and muons (as there is expected to be a small contamination of the pion beam with through going muons. The MPV for the entire sample of 1.727 MeV/cm is slightly above the expected value of 1.65 MeV/cm for a mean momentum of $\sim$500 MeV as was present for this sample, shown in Figure \ref{fig:Run2NegPickyTrkPiMuEMomentumSpec}.
 
 \begin{figure}[htb]
 \centering
@@ -238,31 +304,90 @@ The distributions here also agree with the theoretical curve for a sample of pio
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Positive Polarity Picky Tracks: Proton}\label{sec:Run2PosPickyTrkProton}
+\subsubsection{Negative Polarity Picky Tracks: $K^{-}$}\label{sec:Run2NegPickyTrkKaonMinus}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The sample of 215 negative polarity $K^{-}$ picky track events present in Run-II provide a final check the calibration constants provided in Section \ref{sec:Run2PosPickyTrkPiMuE}. This samples very small statistics limits the overall usefulness of this cross-check, but is provided here for completeness.
+
+Figure \ref{fig:Run2NegPickyTrkKaonResults} shows the dE/dX vs momentum and the aggregate dE/dX distribution obtained with these calorimetry constants.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.48\textwidth]{images/dEdXvsMomentumNegPolRun2Kaon.png}
+\includegraphics[width=0.48\textwidth]{images/dEdXKaonRunIINegPol.png}
+\caption{(Left) dE/dX vs Momentum for Negative Polarity Picky Tracks: $K^{-}$ sample ,(Right) dE/dX for the entire sample of uniquely matched tracks in the Negative Polarity Picky Tracks: $K^{-}$ sample }
+\label{fig:Run2NegPickyTrkKaonResults}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Run-I Cosmic Data}\label{sec:RunICosmics}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-As a final cross-check for Run-2, a sample of protons is selected from the positive polarity picky track sample using the mass cut described in Section \ref{sec:EventSelection} using the same calibration constants derived in Section \ref{sec:Run2PosPickyTrkPiMuE}. The outcome of the calibration sample is shown in Figure \ref{fig:Run2PosPickyTrkProtonResults}.
+As a last check for the calorimetry constants derived, a sample of through going cosmic ray events are selected from a subsample of negative polarity Run-I data. These events are chosen because they have significantly different angle and energy than the beamline tracks used thus far to tune the calorimetry constant.
+
+The selection criteria for these events is: 
+
+\begin{itemize}
+\item \textbf{Cosmic Time-Stamp Event}:
+
+\begin{verbatim}
+tfilt:      @local::lariat_timestampfilter
+
+# ====================================================================
+# Specify range of events to select.  For Run I/II:
+#   - pedestal events:  ~ 0.  - 1.2 sec
+#   - beam events:      ~ 1.2 - 5.5 sec
+#   - cosmic events:    ~ > 5.5 sec
+#   (default selects ALL events)
+physics.filters.tfilt.T1:                       7.5
+physics.filters.tfilt.T2:                       40
+physics.filters.tfilt.RequireRawDigits:         true
+
+\end{verbatim}
+
+For this sample, a $T_{1}$ start time of 7.5 seconds was chosen to ensure no contamination from beam events would be present in the TPC prior to receiving a cosmic trigger.
+
+
+\item \textbf{Single Track Reconstructed}:
+
+Next we require one and only one track reconstructed inside the TPC to avoid any confusion with the track which is being analyzed.
+
+\item \textbf{Vertical Track Requirement}
+
+To help ensure these events have a very different topology than the ones used in the initial calibration, we require the track to have traversed at least 35~cm in the $y$ direction. This ensures the tracks are of high energy and in general vertical going.
+
+\end{itemize}
+
+For Run-I negative polarity data (using the magnet current only to define the data taking period) this selects 59,991 events. Figure \ref{fig:CosmicDist} shows the $y$ vs $z$ distribution of the 3-d points which make up the tracks in the cosmic sample and the dE/dX vs residual range for these tracks. This illustrates that the majority of the tracks traverse the vertical distance of the TPC, while some do manage to traverse a much more diagonal distance. This sample also samples all parts of the TPC fairly uniformly, allowing us to check the calibration in different portions of the TPC.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.48\textwidth]{images/dEdXvsMomentumPosPolRun2ProtonFineBin.png}
-\includegraphics[width=0.48\textwidth]{images/dEdXPosPolRun2Proton.png}
-\caption{(Left) dE/dX vs Momentum for Positive Polarity Picky Tracks proton sample ,(Right) dE/dX for the entire sample of uniquely matched tracks in the Positive Polarity Picky Tracks proton sample.}
-\label{fig:Run2PosPickyTrkProtonResults}
+\includegraphics[width=0.45\textwidth]{images/CosmicDistYZ.png}
+\includegraphics[width=0.45\textwidth]{images/CosmicDistdEdXRR.png}
+\caption{(Left) The y vs x position of all the 3-d points which make up the sample of cosmics used for this sample ,(Right) dE/dX vs Residual Range (RR) for the sample of cosmics demonstrating the range of the sample going from 40 cm up to the full diagonal distance of the TPC.}
+\label{fig:CosmicDist}
 \end{figure}
 
-Just as before, this sample differs slightly from the $\pi, \mu, e$ samples in that the ranges for the fits have been modified to exclude a contamination coming from minimum ionizing particles. This contamination can be seen in the RHS of Figure \ref{fig:Run2PosPickyTrkProtonResults} with the peak below 2~MeV/cm. Secondly, events with very low statistics in the momentum bins below 550~MeV are excluded from the LHS of Figure \ref{figRun1PosPickyTrkProtonResults}.
 
-The MPV for the entire sample of 4.018 MeV/cm agrees closely with the expected value of 3.8 MeV/cm for a mean momentum of $\sim$725  MeV as was present for this sample, shown in Figure \ref{fig:Run1PosPickyTrkProtonMomentumSpec}.
+Figure \ref{fig:CosmicdEdX} shows the dE/dX distribution for this sample of 59,991 events fit with a Landau. This returns a MPV of 1.7 MeV/cm. When compared to the expected value for cosmic ray muons with a momentum of $\sim$5~GeV (as is expected for muons going through LArIAt at sea level) we would expect to get a MPV of 1.73 MeV/cm. Thus our previously derived calibration constants do reproduce the expected distribution for a sample of cosmic rays.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.55\textwidth]{images/WCTrkMomentumRun2PosProton.png}
-\caption{Wire chamber track momentum spectrum for the Run-II Positive Polarity Picky Tracks proton sample  }
-\label{fig:Run1PosPickyTrkProtonMomentumSpec}
+\includegraphics[width=0.45\textwidth]{images/CosmicdEdX.png}
+\includegraphics[width=0.45\textwidth]{images/CosmicRayExpectation.png}
+\caption{(Left) The dE/dX distribution for the sample of Cosmic tracks fit with a Landau function giving a MPV of 1.7 MeV/cm. ,(Right) The theoretical prediction for cosmic ray muons with a mean momentum of $\sim$5~GeV would return a dE/dX MPV of 1.75 MeV/cm.}
+\label{fig:CosmicdEdX}
 \end{figure}
 
-These results verify that the calorimetry constants derived for Run-II indeed calibrate the data samples well.
+Finally, Figure \ref{fig:CosmicdEdXSections} shows the dE/dX distribution if you restrict to only looking at specific portions of the TPC in the $z$ direction. We divide the TPC into four equal portions in $z$ and see the dE/dX response is nearly uniform with the MPV varying 0.094 from the lowest to highest value. 
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.95\textwidth]{images/CosmicFourSections.png}
+\caption{dE/dX distribution over the four sections of the TPC as divided in $z$ from our cosmic data sample.}
+\label{fig:CosmicdEdXSections}
+\end{figure}
+
+
 
 \clearpage
 
@@ -334,69 +459,7 @@ The MPV for the DDMC proton sample is found to be 3.956 MeV/cm. This result is c
 
 These calorimetry constants will be used for all the Data Driven Monte Carlo produced for the forthcoming inclusive cross-section analyses.
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Run-I Cosmic Data}\label{sec:RunICosmics}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-As a last check for the calorimetry constants derived, a sample of through going cosmic ray events are selected from a subsample of negative polarity Run-I data. These events are chosen because they have significantly different angle and energy than the beamline tracks used thus far to tune the calorimetry constant.
-
-The selection criteria for these events is: 
-
-\begin{itemize}
-\item \textbf{Cosmic Time-Stamp Event}:
-
-\begin{verbatim}
-tfilt:      @local::lariat_timestampfilter
-
-# ====================================================================
-# Specify range of events to select.  For Run I/II:
-#   - pedestal events:  ~ 0.  - 1.2 sec
-#   - beam events:      ~ 1.2 - 5.5 sec
-#   - cosmic events:    ~ > 5.5 sec
-#   (default selects ALL events)
-physics.filters.tfilt.T1:                       5.5
-physics.filters.tfilt.T2:                       40
-physics.filters.tfilt.RequireRawDigits:         true
-
-\end{verbatim}
-
-\item \textbf{Single Track Reconstructed}:
-
-Next we require one and only one track reconstructed inside the TPC to avoid any confusion with the track which is being analyzed.
-
-\item \textbf{Vertical Track Requirement}
-
-To help ensure these events have a very different topology than the ones used in the initial calibration, we require the track to have traversed at least 35~cm in the $y$ direction. This ensures the tracks are of high energy and in general vertical going.
-
-\end{itemize}
-
-For a small subsample of Run-I negative polarity data this selects 1,559 events. Figure \ref{fig:CosmicDist} shows the $y$ vs $x$ distribution of the 3-d points which make up the tracks in the cosmic sample and the dE/dX vs residual range for these tracks. This illustrates that the majority of the tracks traverse the vertical distance of the TPC, while some do manage to traverse a much more diagonal distance. This sample also samples all parts of the TPC fairly uniformly, allowing us to check the calibration in different portions of the TPC.
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.95\textwidth]{images/CosmicDist.png}
-\caption{(Left) The y vs x position of all the 3-d points which make up the sample of cosmics used for this sample ,(Right) dE/dX vs Residual Range (RR) for the sample of cosmics demonstrating the range of the sample going from 40 cm up to the full diagonal distance of the TPC.}
-\label{fig:CosmicDist}
-\end{figure}
-
-
-Figure \ref{fig:CosmicdEdX} shows the dE/dX distribution for this sample of 1,559 events fit with a Landau. This returns a MPV of 1.7 MeV/cm. When compared to the expected value for cosmic ray muons with a momentum of $\sim$5~GeV (as is expected for muons going through LArIAt at sea level) we would expect to get a MPV of 1.73 MeV/cm. Thus our previously derived calibration constants do reproduce the expected distribution for a sample of cosmic rays.
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.95\textwidth]{images/CosmicdEdX.png}
-\caption{(Left) The dE/dX distribution for the sample of Cosmic tracks fit with a Landau function giving a MPV of 1.7 MeV/cm. ,(Right) The theoretical prediction for cosmic ray muons with a mean momentum of $\sim$5~GeV would return a dE/dX MPV of 1.73 MeV/cm.}
-\label{fig:CosmicdEdX}
-\end{figure}
-
-Finally, Figure \ref{fig:CosmicdEdXSections} shows the dE/dX distribution if you restrict to only looking at specific portions of the TPC in the $z$ direction. We divide the TPC into four equal portions in $z$ and see the dE/dX response is nearly uniform with the MPV varying 0.094 from the lowest to highest value. 
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.95\textwidth]{images/CosmicFourSections.png}
-\caption{dE/dX distribution over the four sections of the TPC as divided in $z$ from our cosmic data sample.}
-\label{fig:CosmicdEdXSections}
-\end{figure}
 
 
 
