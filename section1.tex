@@ -1,6 +1,6 @@
 \section{Introduction}\label{sec:Introduction}
 
-Here we present the results of the calorimetry tuning done for a sample of data and Monte Carlo spanning Run I and Run II of the LArIAT experiment. This calibration method is predicated on the Bethe-Block description of the mean rate of energy loss for various particle species. This is best represented by Figure \ref{fig:PDGEnergyLoss}, taken from the Particle Data Group \cite{PDG}.
+Here we present the results of the calorimetry tuning done for a sample of data and Monte Carlo spanning Run I and Run II of the LArIAT experiment. This calibration method is predicated on the Bethe-Bloch description of the mean rate of energy loss for various particle species. This is best represented by Figure \ref{fig:PDGEnergyLoss}, taken from the Particle Data Group \cite{PDG}.
 
 \begin{figure}[htb]
 \centering
@@ -9,12 +9,18 @@ Here we present the results of the calorimetry tuning done for a sample of data 
 \label{fig:PDGEnergyLoss}
 \end{figure}
 
-Using the tables provided by the PDG for liquid argon (\cite{PDG-Argon}), we calculate the theoretical values for pions ($\pi$), muons ($\mu$), and protons ($p$) in the momentum range most relevant for LArIAT, shown in Figure \ref{fig:PDGEnergyLossArgon}.
+Using the tables provided by the PDG for liquid argon (\cite{PDG-Argon}), we calculate the theoretical values for pions ($\pi$), muons ($\mu$), kaons ($k$) and protons ($p$) in the momentum range most relevant for LArIAT, shown in Figure \ref{fig:PDGEnergyLossArgon}. This prediction utilizes the Bethe-Bloch description of how much energy charged particles deposit corrected for the density using the Sternheimer parameterization. The most probable value is calculated as
+
+\begin{equation}
+\Delta_{p} (MPV) = \eta [ln (\frac{2 m_{e} c^2 \beta^{2} \gamma^{2}}{I}) + ln(\frac{\eta}{I}) + j - \beta^{2} - \delta(\beta \gamma)]
+\end{equation}
+
+where $\eta = \frac{1}{2} K z^2 \frac{Z x}{A \beta^2}$. Plotting $\Delta{p} / x$ shows the ``Fermi-Plateau'' for the various particles. A more in depth treatment of this function is given in \href{https://lartpc-docdb.fnal.gov/cgi-bin/private/RetrieveFile?docid=2567&filename=30June2017_Presentation_corrected.pdf&version=4}{docDB-2567}
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.50\textwidth]{images/dEdXvsMomentumTemplate}
-\caption{Mean energy loss for pions, muons, and protons in liquid argon over the momentum range most relvant for LArIAT.}
+\includegraphics[width=0.60\textwidth]{images/dEdXvsMomentumTemplate}
+\caption{Mean energy loss (solid line) and most probable value (dashed line) for pions, muons, kaons, and protons in liquid argon over the momentum range most relevant for LArIAT.}
 \label{fig:PDGEnergyLossArgon}
 \end{figure}
 
@@ -37,7 +43,7 @@ The calibration procedure follows the following basic steps:
 
 We first select a sample of beamline events that correspond to either a sample of $\pi, \mu, e$ or protons. This is done by selecting based on the measured time-of-flight (TOF) and momentum. 
 
-For the calibration samples we require the tracks reconstructed in the wire chamber satisfy the criteria known as a ``picky track''. ``Picky tracks'' correspond to tracks reconstructed using hits in all four wire chambers. In these events, one and only one wire chamber track can be reconstructed per event. These tracks have a more accurate measure of the particle momentum than the ``high yield'' tracks which only require hits in three out of four of the wire chamber tracks and can have mulitple wire chamber tracks reconstructed per event. Details about wire chamber track reconstruction can be found in \cite{WCTrackReco}
+For the calibration samples we require the tracks reconstructed in the wire chamber satisfy the criteria known as a ``picky track''. ``Picky tracks'' correspond to tracks reconstructed using hits in all four wire chambers. In these events, one and only one hit in each wire chamber track can be reconstructed per event and the track satisfies a straightness requirement in the Y-Z plane. These tracks have a more accurate measure of the particle momentum than the ``high yield'' tracks which only require hits in three out of four of the wire chamber tracks and can have mulitple wire chamber tracks reconstructed per event. Details about wire chamber track reconstruction can be found in \cite{WCTrackReco}
 
 The wire chamber track is extrapolated to the front face of the LArTPC giving a $x, y$ position expected for the track in the TPC. A simple flat correction to the momentum as measured by the wire chambers due to the  energy loss by the particle as it traverses the material between the last wire chamber and the front face of the LArTPC is applied in data. 
 
